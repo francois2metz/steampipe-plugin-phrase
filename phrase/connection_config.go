@@ -7,10 +7,14 @@ import (
 
 type phraseConfig struct {
 	AccessToken *string `cty:"access_token"`
+	Datacenter  *string `cty:"datacenter"`
 }
 
 var ConfigSchema = map[string]*schema.Attribute{
 	"access_token": {
+		Type: schema.TypeString,
+	},
+	"datacenter": {
 		Type: schema.TypeString,
 	},
 }
