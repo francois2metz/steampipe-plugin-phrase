@@ -64,9 +64,9 @@ func tablePhraseAccount() *plugin.Table {
 }
 
 func listAccount(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData) (interface{}, error) {
-	client, auth, err := connect(ctx, d)
+	client, authContext, err := connect(ctx, d)
 	if err != nil {
-		plugin.Logger(*auth).Error("phrase_account.listAccount", "connection_error", err)
+		plugin.Logger(*authContext).Error("phrase_account.listAccount", "connection_error", err)
 		return nil, err
 	}
 	opts := &phrase.AccountsListOpts{
@@ -74,13 +74,13 @@ func listAccount(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData
 		PerPage: optional.NewInt32(100),
 	}
 	for {
-		accounts, response, err := client.AccountsApi.AccountsList(*auth, opts)
+		accounts, response, err := client.AccountsApi.AccountsList(*authContext, opts)
 		if err != nil {
-			plugin.Logger(*auth).Error("phrase_account.listAccount", err)
+			plugin.Logger(*authContext).Error("phrase_account.listAccount", err)
 			return nil, err
 		}
 		for _, account := range accounts {
-			d.StreamListItem(*auth, account)
+			d.StreamListItem(*authContext, account)
 		}
 		if response.NextPage == 0 {
 			break
@@ -94,17 +94,17 @@ func listAccount(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData
 }
 
 func getAccount(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData) (interface{}, error) {
-	client, auth, err := connect(ctx, d)
+	client, authContext, err := connect(ctx, d)
 	if err != nil {
-		plugin.Logger(*auth).Error("phrase_account.getAccount", "connection_error", err)
+		plugin.Logger(*authContext).Error("phrase_account.getAccount", "connection_error", err)
 		return nil, err
 	}
 	quals := d.EqualsQuals
 	id := quals["id"].GetStringValue()
 	opts := &phrase.AccountShowOpts{}
-	result, _, err := client.AccountsApi.AccountShow(*auth, id, opts)
+	result, _, err := client.AccountsApi.AccountShow(*authContext, id, opts)
 	if err != nil {
-		plugin.Logger(*auth).Error("phrase_account.getAccount", err)
+		plugin.Logger(*authContext).Error("phrase_account.getAccount", err)
 		return nil, err
 	}
 	return result, nil

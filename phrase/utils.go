@@ -10,9 +10,13 @@ import (
 )
 
 func connect(ctx context.Context, d *plugin.QueryData) (*phrase.APIClient, *context.Context, error) {
+	cfg := phrase.NewConfiguration()
+	client := phrase.NewAPIClient(cfg)
+
 	cacheKey := "phrase"
 	if cachedData, ok := d.ConnectionManager.Cache.Get(cacheKey); ok {
-		return cachedData.(*phrase.APIClient), nil, nil
+		authContext := context.WithValue(ctx, phrase.ContextAPIKey, cachedData.(phrase.APIKey))
+		return client, &authContext, nil
 	}
 
 	access_token := os.Getenv("PHRASE_ACCESS_TOKEN")
@@ -26,16 +30,14 @@ func connect(ctx context.Context, d *plugin.QueryData) (*phrase.APIClient, *cont
 		return nil, nil, errors.New("'access_token' must be set in the connection configuration. Edit your connection configuration file or set the PHRASE_ACCESS_TOKEN environment variable and then restart Steampipe")
 	}
 
-	auth := context.WithValue(ctx, phrase.ContextAPIKey, phrase.APIKey{
+	apiKey := phrase.APIKey{
 		Key:    access_token,
 		Prefix: "token",
-	})
-
-	cfg := phrase.NewConfiguration()
-	client := phrase.NewAPIClient(cfg)
+	}
+	authContext := context.WithValue(ctx, phrase.ContextAPIKey, apiKey)
 
 	// Save to cache
-	d.ConnectionManager.Cache.Set(cacheKey, client)
+	d.ConnectionManager.Cache.Set(cacheKey, apiKey)
 
-	return client, &auth, nil
+	return client, &authContext, nil
 }

@@ -71,9 +71,9 @@ func tablePhraseProject() *plugin.Table {
 }
 
 func listProject(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData) (interface{}, error) {
-	client, auth, err := connect(ctx, d)
+	client, authContext, err := connect(ctx, d)
 	if err != nil {
-		plugin.Logger(*auth).Error("phrase_project.listProject", "connection_error", err)
+		plugin.Logger(*authContext).Error("phrase_project.listProject", "connection_error", err)
 		return nil, err
 	}
 	opts := &phrase.ProjectsListOpts{
@@ -84,13 +84,13 @@ func listProject(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData
 		opts.AccountId = optional.NewString(d.EqualsQuals["account_id"].GetStringValue())
 	}
 	for {
-		projects, response, err := client.ProjectsApi.ProjectsList(*auth, opts)
+		projects, response, err := client.ProjectsApi.ProjectsList(*authContext, opts)
 		if err != nil {
-			plugin.Logger(*auth).Error("phrase_project.listProject", err)
+			plugin.Logger(*authContext).Error("phrase_project.listProject", err)
 			return nil, err
 		}
 		for _, project := range projects {
-			d.StreamListItem(*auth, project)
+			d.StreamListItem(*authContext, project)
 		}
 		if response.NextPage == 0 {
 			break
@@ -104,17 +104,17 @@ func listProject(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData
 }
 
 func getProject(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData) (interface{}, error) {
-	client, auth, err := connect(ctx, d)
+	client, authContext, err := connect(ctx, d)
 	if err != nil {
-		plugin.Logger(*auth).Error("phrase_project.getProject", "connection_error", err)
+		plugin.Logger(*authContext).Error("phrase_project.getProject", "connection_error", err)
 		return nil, err
 	}
 	quals := d.EqualsQuals
 	id := quals["id"].GetStringValue()
 	opts := &phrase.ProjectShowOpts{}
-	result, _, err := client.ProjectsApi.ProjectShow(*auth, id, opts)
+	result, _, err := client.ProjectsApi.ProjectShow(*authContext, id, opts)
 	if err != nil {
-		plugin.Logger(*auth).Error("phrase_project.getProject", err)
+		plugin.Logger(*authContext).Error("phrase_project.getProject", err)
 		return nil, err
 	}
 	return result, nil
