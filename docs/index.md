@@ -27,12 +27,12 @@ from
 ```
 
 ```
-+--------------------+----------------+
-| name               | created_at     |
-+--------------------+----------------+
-| caresteouvert-map  | osc-fr1        |
-| caresteouvert-api  | osc-secnum-fr1 |
-+--------------------+----------------+
++--------------------+-----------------------+
+| name               | created_at            |
++--------------------+-----------------------+
+| My Awesome Project | 2023-09-04T10:42:02Z  |
+| Another Project    | 2023-10-16T07:31:34Z  |
++--------------------+-----------------------+
 ```
 
 ## Documentation
@@ -54,7 +54,7 @@ steampipe plugin install francois2metz/phrase
 | Item        | Description                                                                                                                                                                      |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Credentials | Phrase requires an [access token](https://app.phrase.com/settings/oauth_access_tokens).                                                                                          |
-| Permissions | Token should have only the "read" scope                                                                                                                                          |
+| Permissions | Token should have at least the `read` scope. To manage members, add `team.manage`                                                                                                |
 | Radius      | Each connection represents a single Phrase account.                                                                                                                              |
 | Resolution  | 1. Credentials explicitly set in a steampipe config file (`~/.steampipe/config/phrase.spc`)<br />2. Credentials specified in environment variables, e.g., `PHRASE_ACCESS_TOKEN`. |
 
