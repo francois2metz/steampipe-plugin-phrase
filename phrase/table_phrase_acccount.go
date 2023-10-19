@@ -101,8 +101,7 @@ func getAccount(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData)
 	}
 	quals := d.EqualsQuals
 	id := quals["id"].GetStringValue()
-	opts := &phrase.AccountShowOpts{}
-	result, _, err := client.AccountsApi.AccountShow(*authContext, id, opts)
+	result, _, err := client.AccountsApi.AccountShow(*authContext, id, nil)
 	if err != nil {
 		plugin.Logger(*authContext).Error("phrase_account.getAccount", err)
 		return nil, err

@@ -111,8 +111,7 @@ func getProject(ctx context.Context, d *plugin.QueryData, h *plugin.HydrateData)
 	}
 	quals := d.EqualsQuals
 	id := quals["id"].GetStringValue()
-	opts := &phrase.ProjectShowOpts{}
-	result, _, err := client.ProjectsApi.ProjectShow(*authContext, id, opts)
+	result, _, err := client.ProjectsApi.ProjectShow(*authContext, id, nil)
 	if err != nil {
 		plugin.Logger(*authContext).Error("phrase_project.getProject", err)
 		return nil, err
