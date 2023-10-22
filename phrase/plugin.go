@@ -20,6 +20,7 @@ func Plugin(ctx context.Context) *plugin.Plugin {
 			"phrase_locale":  tablePhraseLocale(),
 			"phrase_member":  tablePhraseMember(),
 			"phrase_project": tablePhraseProject(),
+			"phrase_tag":     tablePhraseTag(),
 		},
 	}
 	return p
