@@ -15,8 +15,16 @@ func tablePhraseKey() *plugin.Table {
 		Name:        "phrase_key",
 		Description: "Keys are used to identify translatable text strings within software code.",
 		List: &plugin.ListConfig{
-			KeyColumns: plugin.SingleColumn("project_id"),
-			Hydrate:    listKey,
+			KeyColumns: []*plugin.KeyColumn{
+				{
+					Name: "project_id",
+				},
+				{
+					Name:    "branch",
+					Require: plugin.Optional,
+				},
+			},
+			Hydrate: listKey,
 		},
 		Get: &plugin.GetConfig{
 			KeyColumns: plugin.AllColumns([]string{"project_id", "name"}),
@@ -34,6 +42,12 @@ func tablePhraseKey() *plugin.Table {
 				Type:        proto.ColumnType_STRING,
 				Description: "Project id associated to the key.",
 				Transform:   transform.FromQual("project_id"),
+			},
+			{
+				Name:        "branch",
+				Type:        proto.ColumnType_STRING,
+				Description: "The branch to filter tag",
+				Transform:   transform.FromQual("branch"),
 			},
 			{
 				Name:        "name",
@@ -85,6 +99,10 @@ func listKey(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData) (i
 		PerPage: optional.NewInt32(100),
 	}
 	project_id := d.EqualsQuals["project_id"].GetStringValue()
+	branch := d.EqualsQuals["branch"].GetStringValue()
+	if branch != "" {
+		opts.Branch = optional.NewString(branch)
+	}
 	for {
 		locales, response, err := client.KeysApi.KeysList(*authContext, project_id, opts)
 		if err != nil {

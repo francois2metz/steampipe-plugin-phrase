@@ -19,6 +19,19 @@ where
   project_id = 'oneprojectid';
 ```
 
+### List keys from a branch (entreprise only)
+
+```sql
+select
+  name,
+  description,
+from
+  phrase_key
+where
+  project_id = 'oneprojectid'
+  and branch = 'my-feature-branch';
+```
+
 ### Get key by id
 
 ```sql
