@@ -13,7 +13,7 @@ import (
 func tablePhraseTag() *plugin.Table {
 	return &plugin.Table{
 		Name:        "phrase_tag",
-		Description: "",
+		Description: "Tags are associated to keys.",
 		List: &plugin.ListConfig{
 			KeyColumns: plugin.SingleColumn("project_id"),
 			Hydrate:    listTag,
