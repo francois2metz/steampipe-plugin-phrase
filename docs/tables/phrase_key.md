@@ -32,6 +32,19 @@ where
   and branch = 'my-feature-branch';
 ```
 
+### List keys that match a string
+
+```sql
+select
+  name,
+  description,
+from
+  phrase_key
+where
+  project_id = 'oneprojectid'
+  and q = 'mykey*'
+```
+
 ### Get key by id
 
 ```sql

@@ -23,6 +23,10 @@ func tablePhraseKey() *plugin.Table {
 					Name:    "branch",
 					Require: plugin.Optional,
 				},
+				{
+					Name:    "q",
+					Require: plugin.Optional,
+				},
 			},
 			Hydrate: listKey,
 		},
@@ -48,6 +52,12 @@ func tablePhraseKey() *plugin.Table {
 				Type:        proto.ColumnType_STRING,
 				Description: "The branch to filter tag",
 				Transform:   transform.FromQual("branch"),
+			},
+			{
+				Name:        "q",
+				Type:        proto.ColumnType_STRING,
+				Description: "The query to do broad search. See the parameter key https://developers.phrase.com/api/#get-/projects/-project_id-/keys.",
+				Transform:   transform.FromQual("q"),
 			},
 			{
 				Name:        "name",
@@ -102,6 +112,10 @@ func listKey(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData) (i
 	branch := d.EqualsQuals["branch"].GetStringValue()
 	if branch != "" {
 		opts.Branch = optional.NewString(branch)
+	}
+	q := d.EqualsQuals["q"].GetStringValue()
+	if q != "" {
+		opts.Q = optional.NewString(q)
 	}
 	for {
 		locales, response, err := client.KeysApi.KeysList(*authContext, project_id, opts)
