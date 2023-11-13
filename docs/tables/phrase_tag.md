@@ -18,9 +18,22 @@ where
   project_id = 'oneprojectid';
 ```
 
+### List tags from a branch (entreprise only)
+
+```sql
+select
+  name,
+  keys_count
+from
+  phrase_tag
+where
+  project_id = 'oneprojectid'
+  and branch = 'my-feature-branch';
+```
+
 ### Order tags by creation date
 
-```
+```sql
 select
   name
 from
@@ -33,7 +46,7 @@ order by
 
 ### Order tags by least associated keys
 
-```
+```sql
 select
   name
 from

@@ -15,8 +15,16 @@ func tablePhraseTag() *plugin.Table {
 		Name:        "phrase_tag",
 		Description: "Tags are associated to keys.",
 		List: &plugin.ListConfig{
-			KeyColumns: plugin.SingleColumn("project_id"),
-			Hydrate:    listTag,
+			KeyColumns: []*plugin.KeyColumn{
+				{
+					Name: "project_id",
+				},
+				{
+					Name:    "branch",
+					Require: plugin.Optional,
+				},
+			},
+			Hydrate: listTag,
 		},
 		Get: &plugin.GetConfig{
 			KeyColumns: plugin.AllColumns([]string{"project_id", "name"}),
@@ -33,6 +41,12 @@ func tablePhraseTag() *plugin.Table {
 				Type:        proto.ColumnType_STRING,
 				Description: "Project id associated to the tag.",
 				Transform:   transform.FromQual("project_id"),
+			},
+			{
+				Name:        "branch",
+				Type:        proto.ColumnType_STRING,
+				Description: "The branch to filter tag",
+				Transform:   transform.FromQual("branch"),
 			},
 			{
 				Name:        "keys_count",
@@ -64,6 +78,10 @@ func listTag(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData) (i
 		PerPage: optional.NewInt32(100),
 	}
 	project_id := d.EqualsQuals["project_id"].GetStringValue()
+	branch := d.EqualsQuals["branch"].GetStringValue()
+	if branch != "" {
+		opts.Branch = optional.NewString(branch)
+	}
 	for {
 		locales, response, err := client.TagsApi.TagsList(*authContext, project_id, opts)
 		if err != nil {
