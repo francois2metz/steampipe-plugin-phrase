@@ -17,6 +17,7 @@ func Plugin(ctx context.Context) *plugin.Plugin {
 		},
 		TableMap: map[string]*plugin.Table{
 			"phrase_account": tablePhraseAccount(),
+			"phrase_key":     tablePhraseKey(),
 			"phrase_locale":  tablePhraseLocale(),
 			"phrase_member":  tablePhraseMember(),
 			"phrase_project": tablePhraseProject(),
