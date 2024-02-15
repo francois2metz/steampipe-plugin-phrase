@@ -579,6 +579,8 @@ github.com/pegasus-kv/thrift v0.13.0 h1:4ESwaNoHImfbHa9RUGJiJZ4hrxorihZHk5aarYwY
 github.com/pegasus-kv/thrift v0.13.0/go.mod h1:Gl9NT/WHG6ABm6NsrbfE8LiJN0sAyneCrvB4qN4NPqQ=
 github.com/phrase/phrase-go/v2 v2.15.0 h1:9v9B6p8z7yw5OYpAIOajHcD+tQMJyrBT79Dimxdk10A=
 github.com/phrase/phrase-go/v2 v2.15.0/go.mod h1:N1ou4nnB9ak8aAWOH7x25Xhzw8FmFeBRhSGq5A0CY2o=
+github.com/phrase/phrase-go/v2 v2.24.0 h1:3UAbj1SQne4j0X5Wp0O6tsgxp5hvcJuzdSE3x2E52Qo=
+github.com/phrase/phrase-go/v2 v2.24.0/go.mod h1:ARQGM+rzC0tPf3Lf4pHoRKpGtmQnBa7V7LSVs3oJf0U=
 github.com/pkg/errors v0.8.0/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
