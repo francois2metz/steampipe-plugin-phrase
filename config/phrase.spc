@@ -9,5 +9,6 @@ connection "phrase" {
     # Datacenter (optional)
     # By default EU datacenter: https://api.phrase.com/v2
     # US datacenter: https://api.us.app.phrase.com/v2/
+    # This can also be set via the `PHRASE_DATACENTER` environment variable
     # datacenter = "https://api.phrase.com/v2"
 }

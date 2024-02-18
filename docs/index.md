@@ -80,10 +80,11 @@ connection "phrase" {
 
 ### Credentials from Environment Variables
 
-The Phrase plugin will use the following environment variables to obtain credentials **only if other argument (`access_token`) is not specified** in the connection:
+The Phrase plugin will use the following environment variables to obtain credentials **only if other argument (`access_token`, `datacenter`) is not specified** in the connection:
 
 ```sh
 export PHRASE_ACCESS_TOKEN=siFreKnogsObVeirlildOakmygDectItEejOathdajtivSeawdyearArEsfosDys
+export PHRASE_DATACENTER=https://api.phrase.com/v2
 ```
 
 ## Get Involved
