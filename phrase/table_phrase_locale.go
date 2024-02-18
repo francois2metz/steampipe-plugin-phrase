@@ -117,7 +117,7 @@ func tablePhraseLocale() *plugin.Table {
 				Type:        proto.ColumnType_INT,
 				Hydrate:     getLocaleDetail,
 				Transform:   transform.FromField("Statistics.MissingWordsCount"),
-				Description: "Number of missing words",
+				Description: "Number of missing words.",
 			},
 		},
 	}
