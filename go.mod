@@ -4,7 +4,7 @@ go 1.21
 
 require (
 	github.com/antihax/optional v1.0.0
-	github.com/phrase/phrase-go/v2 v2.24.0
+	github.com/phrase/phrase-go/v2 v2.25.0
 	github.com/turbot/steampipe-plugin-sdk/v5 v5.9.0
 )
 
