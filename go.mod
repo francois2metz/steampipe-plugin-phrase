@@ -6,7 +6,7 @@ toolchain go1.22.2
 
 require (
 	github.com/antihax/optional v1.0.0
-	github.com/phrase/phrase-go/v2 v2.25.1
+	github.com/phrase/phrase-go/v2 v2.26.0
 	github.com/turbot/steampipe-plugin-sdk/v5 v5.10.0
 )
 

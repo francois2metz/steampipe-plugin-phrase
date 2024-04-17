@@ -515,6 +515,8 @@ github.com/phrase/phrase-go/v2 v2.25.0 h1:LCiuHrvKxCv/ZYKW1csu/BfGt4ksZA+zF9ocb8
 github.com/phrase/phrase-go/v2 v2.25.0/go.mod h1:ARQGM+rzC0tPf3Lf4pHoRKpGtmQnBa7V7LSVs3oJf0U=
 github.com/phrase/phrase-go/v2 v2.25.1 h1:rSVYhSqptFkdvbQZGfzzwgfhddjnaFLFAN/RioMhJWk=
 github.com/phrase/phrase-go/v2 v2.25.1/go.mod h1:ARQGM+rzC0tPf3Lf4pHoRKpGtmQnBa7V7LSVs3oJf0U=
+github.com/phrase/phrase-go/v2 v2.26.0 h1:AoeCKQFZAbFKnlq7Qe7wHt66Np0G4QBeFxDW3boahCQ=
+github.com/phrase/phrase-go/v2 v2.26.0/go.mod h1:ARQGM+rzC0tPf3Lf4pHoRKpGtmQnBa7V7LSVs3oJf0U=
 github.com/pkg/errors v0.8.0/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
