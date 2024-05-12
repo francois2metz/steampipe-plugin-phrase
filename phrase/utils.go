@@ -5,7 +5,7 @@ import (
 	"errors"
 	"os"
 
-	phrase "github.com/phrase/phrase-go/v2"
+	phrase "github.com/phrase/phrase-go/v3"
 	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
 )
 
