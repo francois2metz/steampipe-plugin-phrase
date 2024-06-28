@@ -495,6 +495,8 @@ github.com/olekukonko/tablewriter v0.0.5 h1:P2Ga83D34wi1o9J6Wh1mRuqd4mF/x/lgBS7N
 github.com/olekukonko/tablewriter v0.0.5/go.mod h1:hPp6KlRPjbx+hW8ykQs1w3UBbZlj6HuIJcUGPhkA7kY=
 github.com/phrase/phrase-go/v3 v3.2.1 h1:OrERD5cnSBbcf5JOkbdYjUJRfm5Xb/g1LPKyO3yen5s=
 github.com/phrase/phrase-go/v3 v3.2.1/go.mod h1:s0uOYiXLxKAYlaIS6TbKv3efkKFUlY4OB6OL+VgvK90=
+github.com/phrase/phrase-go/v3 v3.3.0 h1:kq2eFgKE6mUUZpud1KWsTa1RO4T+ztB2JI3DsCfqHog=
+github.com/phrase/phrase-go/v3 v3.3.0/go.mod h1:s0uOYiXLxKAYlaIS6TbKv3efkKFUlY4OB6OL+VgvK90=
 github.com/pkg/errors v0.8.0/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
