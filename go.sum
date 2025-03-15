@@ -562,6 +562,7 @@ github.com/opencontainers/image-spec v1.1.0 h1:8SG7/vwALn54lVB/0yZ/MMwhFrPYtpEHQ
 github.com/opencontainers/image-spec v1.1.0/go.mod h1:W4s4sFTMaBeK1BQLXbG4AdM2szdn85PY75RI83NrTrM=
 github.com/phrase/phrase-go/v3 v3.7.1 h1:zrGntbiuOTjOpVcG7jkUpQLq570s+RPRYxWIRSfNiTs=
 github.com/phrase/phrase-go/v3 v3.7.1/go.mod h1:s0uOYiXLxKAYlaIS6TbKv3efkKFUlY4OB6OL+VgvK90=
+github.com/phrase/phrase-go/v4 v4.4.0/go.mod h1:4XplKvrbHS2LDaXfFp9xrVDtO5xk2WHFm0htutwwd8c=
 github.com/pkg/errors v0.8.0/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
