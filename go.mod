@@ -5,7 +5,7 @@ go 1.23.6
 require (
 	github.com/antihax/optional v1.0.0
 	github.com/phrase/phrase-go/v3 v3.7.1
-	github.com/turbot/steampipe-plugin-sdk/v5 v5.11.5
+	github.com/turbot/steampipe-plugin-sdk/v5 v5.11.6
 )
 
 require (
