@@ -5,7 +5,7 @@ go 1.24
 require (
 	github.com/antihax/optional v1.0.0
 	github.com/phrase/phrase-go/v4 v4.9.0
-	github.com/turbot/steampipe-plugin-sdk/v5 v5.13.0
+	github.com/turbot/steampipe-plugin-sdk/v5 v5.13.1
 )
 
 require (
@@ -79,7 +79,7 @@ require (
 	github.com/stretchr/testify v1.10.0 // indirect
 	github.com/tkrajina/go-reflector v0.5.6 // indirect
 	github.com/turbot/go-kit v1.1.0 // indirect
-	github.com/ulikunitz/xz v0.5.14 // indirect
+	github.com/ulikunitz/xz v0.5.15 // indirect
 	github.com/zclconf/go-cty v1.14.4 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.49.0 // indirect
