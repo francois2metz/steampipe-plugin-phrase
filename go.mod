@@ -4,7 +4,7 @@ go 1.24
 
 require (
 	github.com/antihax/optional v1.0.0
-	github.com/phrase/phrase-go/v4 v4.10.0
+	github.com/phrase/phrase-go/v4 v4.11.0
 	github.com/turbot/steampipe-plugin-sdk/v5 v5.13.1
 )
 
